@@ -1,0 +1,20 @@
+.navMobile {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  .navDesktop {
+    display: none;
+  }
+  .navMobile {
+    display: block;
+  }
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.menuElem {
+  margin-right: 20px;
+  text-transform: uppercase;
+}
