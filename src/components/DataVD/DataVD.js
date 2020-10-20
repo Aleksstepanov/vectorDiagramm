@@ -1,44 +1,29 @@
 import React from "react";
+import CardInput from "../CardInput/CardInput";
 
 export default props => {
+    const data = {
+        phaseA: {
+            name: 'Фаза А',
+            id: ['voltageA', 'currentA', 'cornerA'],
+            value: ['Ua', 'Ia', 'La']
+        },
+        phaseB: {
+            name: 'Фаза B',
+            id: ['voltageB', 'currentB', 'cornerB'],
+            value: ['Ub', 'Ib', 'Lb']
+        },
+        phaseC: {
+            name: 'Фаза C',
+            id: ['voltageC', 'currentC', 'cornerC'],
+            value: ['Uc', 'Ic', 'Lc']
+        },
+    }
     return (
         <React.Fragment>
-        <div className="input-field col s4">
-            <input id="voltageA" type="text" className="validate" onChange={props.onVoltageA}/>
-                <label htmlFor="voltageA">Ua</label>
-        </div>
-        <div className="input-field col s4">
-            <input id="currentA" type="text" className="validate" onChange={props.onCurrentA}/>
-            <label htmlFor="currentA">Ia</label>
-        </div>
-        <div className="input-field col s4">
-            <input id="cornerA" type="text" className="validate" onChange={props.onCornerA}/>
-            <label htmlFor="cornerA">La</label>
-        </div>
-            <div className="input-field col s4">
-                <input id="voltageB" type="text" className="validate"/>
-                <label htmlFor="voltageB">Ub</label>
-            </div>
-            <div className="input-field col s4">
-                <input id="currentB" type="text" className="validate"/>
-                <label htmlFor="currentB">Ib</label>
-            </div>
-            <div className="input-field col s4">
-                <input id="cornerB" type="text" className="validate"/>
-                <label htmlFor="cornerB">Lb</label>
-            </div>
-            <div className="input-field col s4">
-                <input id="voltageC" type="text" className="validate"/>
-                <label htmlFor="voltageC">Uc</label>
-            </div>
-            <div className="input-field col s4">
-                <input id="currentC" type="text" className="validate"/>
-                <label htmlFor="currentC">Ic</label>
-            </div>
-            <div className="input-field col s4">
-                <input id="cornerC" type="text" className="validate"/>
-                <label htmlFor="cornerC">Lc</label>
-            </div>
+            <CardInput data={data.phaseA} onInput = {(event) => props.onInput(event)}/>
+            <CardInput data={data.phaseB} onInput = {(event) => props.onInput(event)}/>
+            <CardInput data={data.phaseC} onInput = {(event) => props.onInput(event)}/>
         </React.Fragment>
     )
 }

@@ -44,6 +44,9 @@ export default class extends Component {
         phaseA.voltage = newVoltage;
         this.setState({phaseA});
     }
+    onHandlerData(value, id) {
+        console.log(value, id);
+    }
     render() {
         return (
             <React.Fragment>
@@ -51,12 +54,12 @@ export default class extends Component {
                     <div className="col s12 m12">
                         <div className="card grey darken-1">
                             <ChoiceRemovalVD/>
-                            <DataVD onCornerA={(props) => this.onCornerA(props.target.value)}
-                                    onCurrentA={(props) => this.onCurrentA(props.target.value)}
-                                    onVoltageA={(props) => this.onVoltageA(props.target.value)}
-                            />
-
                         </div>
+                        <DataVD onCornerA={(props) => this.onCornerA(props.target.value)}
+                                onCurrentA={(props) => this.onCurrentA(props.target.value)}
+                                onVoltageA={(props) => this.onVoltageA(props.target.value)}
+                                onInput={(props) => this.onHandlerData(props.target.value, props.target.id)}
+                        />
                     </div>
                 </div>
                 <div className={style.graph}>
