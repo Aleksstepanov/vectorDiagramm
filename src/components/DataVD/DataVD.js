@@ -4,15 +4,15 @@ export default props => {
     return (
         <React.Fragment>
         <div className="input-field col s4">
-            <input id="voltageA" type="text" className="validate"/>
+            <input id="voltageA" type="text" className="validate" onChange={props.onVoltageA}/>
                 <label htmlFor="voltageA">Ua</label>
         </div>
         <div className="input-field col s4">
-            <input id="currentA" type="text" className="validate"/>
+            <input id="currentA" type="text" className="validate" onChange={props.onCurrentA}/>
             <label htmlFor="currentA">Ia</label>
         </div>
         <div className="input-field col s4">
-            <input id="cornerA" type="text" className="validate"/>
+            <input id="cornerA" type="text" className="validate" onChange={props.onCornerA}/>
             <label htmlFor="cornerA">La</label>
         </div>
             <div className="input-field col s4">
