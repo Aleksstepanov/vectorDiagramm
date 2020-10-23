@@ -5,7 +5,7 @@ import cl from 'classnames';
 import ChoiceRemovalVD from "../ChoiceRemovalVD/ChoiceRemovalVD";
 import DataVD from '../DataVD/DataVD';
 import VDGraf from "../VDGraf/VDGraf";
-
+import coordinates from "../../module/coordinates";
 import style from './Content.module.scss';
 
 export default class extends Component {
@@ -26,6 +26,22 @@ export default class extends Component {
                 voltage: '',
                 current: '',
                 corner: ''
+            },
+            phaseCoordinates: {
+                phaseACoordinates: {
+                    voltage: {
+                        data: [
+                            {x: 0, y: 0},
+                            {x: 0, y: 0}
+                        ],
+                    },
+                    current: {
+                        data: [
+                            {x: 0, y: 0},
+                            {x: 0, y: 0}
+                        ]
+                    }
+                }
             }
         }
     }
@@ -71,7 +87,9 @@ export default class extends Component {
             default: 
                 console.log(1);
         }
-        
+        const newCoordinates = coordinates(this.state);
+        this.setState({phaseCoordinates: newCoordinates});
+        console.log(this.state);
     }
     render() {
         return (
