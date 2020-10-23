@@ -21,9 +21,11 @@ export default props => {
     }
     return (
         <React.Fragment>
+            <div className="row"> 
             <CardInput data={data.phaseA} onInput = {(event) => props.onInput(event)}/>
             <CardInput data={data.phaseB} onInput = {(event) => props.onInput(event)}/>
             <CardInput data={data.phaseC} onInput = {(event) => props.onInput(event)}/>
+            </div>
         </React.Fragment>
     )
 }

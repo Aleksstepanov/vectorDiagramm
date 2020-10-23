@@ -29,23 +29,49 @@ export default class extends Component {
             }
         }
     }
-    onCornerA(newCorner) {
-        const {phaseA} = this.state;
-        phaseA.corner = newCorner;
-        this.setState({phaseA});
-    }
-    onCurrentA(newCurrent) {
-        const {phaseA} = this.state;
-        phaseA.current = newCurrent;
-        this.setState({phaseA});
-    }
-    onVoltageA(newVoltage) {
-        const {phaseA} = this.state;
-        phaseA.voltage = newVoltage;
-        this.setState({phaseA});
-    }
     onHandlerData(value, id) {
-        console.log(value, id);
+        const {phaseA, phaseB, phaseC} = this.state;
+        switch (id) {
+            case 'voltageA':
+                phaseA.voltage = value;
+                this.setState({phaseA});
+                break;
+            case 'currentA':
+                phaseA.current = value;
+                this.setState({phaseA});
+                break;
+            case 'cornerA':
+                phaseA.corner = value;
+                this.setState({phaseA});
+                break;
+            case 'voltageB':
+                phaseB.voltage = value;
+                this.setState({phaseB});
+                break;
+            case 'currentB':
+                phaseB.current = value;
+                this.setState({phaseB});
+                break;
+            case 'cornerB':
+                phaseB.corner = value;
+                this.setState({phaseB});
+                break;
+            case 'voltageC':
+                phaseC.voltage = value;
+                this.setState({phaseC});
+                break;
+            case 'currentC':
+                phaseC.current = value;
+                this.setState({phaseC});
+                break;
+            case 'cornerC':
+                phaseC.corner = value;
+                this.setState({phaseC});
+                break;
+            default: 
+                console.log(1);
+        }
+        
     }
     render() {
         return (
@@ -55,10 +81,7 @@ export default class extends Component {
                         <div className="card grey darken-1">
                             <ChoiceRemovalVD/>
                         </div>
-                        <DataVD onCornerA={(props) => this.onCornerA(props.target.value)}
-                                onCurrentA={(props) => this.onCurrentA(props.target.value)}
-                                onVoltageA={(props) => this.onVoltageA(props.target.value)}
-                                onInput={(props) => this.onHandlerData(props.target.value, props.target.id)}
+                        <DataVD onInput={(props) => this.onHandlerData(props.target.value, props.target.id)}
                         />
                     </div>
                 </div>
