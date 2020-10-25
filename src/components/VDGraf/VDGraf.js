@@ -1,14 +1,11 @@
-import React, {Component} from "react";
+import React from "react";
 import { VictoryLine, VictoryGroup } from 'victory';
 
-export default class extends Component {
-
-    render() {
-        console.log(this.props);
-        const {phaseACoordinates, width, height} = this.props.data.phaseCoordinates;
-
-        return(
-            <VictoryGroup width={width} height={height}>
+export default (props) => {
+    const {phaseACoordinates, width, height} = props.data;
+    console.log(phaseACoordinates);
+    return(
+            <VictoryGroup width={320} height={320}>
                 <VictoryLine
                     style={{
                         data: { stroke: "yellow" },
@@ -29,7 +26,4 @@ export default class extends Component {
             </VictoryGroup>
             
         )
-    }
-
-
 }

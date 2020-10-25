@@ -24,6 +24,5 @@ export default (state) => {
             ]
         }
     }
-    console.log(phaseCoordinates);
     return phaseCoordinates;
 }

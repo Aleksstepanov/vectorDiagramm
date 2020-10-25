@@ -7,8 +7,9 @@ export default  props => {
         const key = /[0-9]|(,)/
         test = key.test(event.key);
     }
-    const onChangeInputHandelr = (event) => {
-        test ? props.onInput(event) : event.target.value = "";
+    const onChangeInputHandler = (event) => {
+        // test ? props.onInput(event) : event.target.value = "";
+        props.onInput(event);
     }
     return (
         
@@ -20,7 +21,7 @@ export default  props => {
                             id.map((elem, index) => {
                                 return (
                                     <div className="white-text input-field" key={elem}>
-                                        <input id={elem} type="text" className="validate" onChange={onChangeInputHandelr} onKeyDown={onKeyDownHandler}/>
+                                        <input id={elem} type="text" className="validate" onBlur={onChangeInputHandler} onKeyDown={onKeyDownHandler}/>
                                         <label htmlFor={elem}>{value[index]}</label>
                                     </div>
                                 )

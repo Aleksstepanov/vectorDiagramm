@@ -15,7 +15,7 @@ export default class extends Component {
             phaseA: {
                 voltage: '',
                 current: '',
-                corner: ''
+                corner: '0'
             },
             phaseB: {
                 voltage: '',
@@ -27,22 +27,7 @@ export default class extends Component {
                 current: '',
                 corner: ''
             },
-            phaseCoordinates: {
-                phaseACoordinates: {
-                    voltage: {
-                        data: [
-                            {x: 0, y: 0},
-                            {x: 0, y: 0}
-                        ],
-                    },
-                    current: {
-                        data: [
-                            {x: 0, y: 0},
-                            {x: 0, y: 0}
-                        ]
-                    }
-                }
-            }
+
         }
     }
     onHandlerData(value, id) {
@@ -87,8 +72,6 @@ export default class extends Component {
             default: 
                 console.log(1);
         }
-        const newCoordinates = coordinates(this.state);
-        this.setState({phaseCoordinates: newCoordinates});
         console.log(this.state);
     }
     render() {
@@ -104,7 +87,7 @@ export default class extends Component {
                     </div>
                 </div>
                 <div className={style.graph}>
-                    <VDGraf data={this.state}/>
+                    <VDGraf data={coordinates(this.state)}/>
                 </div>
             </React.Fragment>
         );
