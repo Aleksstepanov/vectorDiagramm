@@ -1,3 +1,5 @@
+import coordinateShift from "./coordinateShift";
+
 export default (state) => {
     const {phaseA, phaseB, phaseC} = state,
         width = 320,
@@ -11,6 +13,21 @@ export default (state) => {
             height: 320,
         };
     phaseCoordinates.phaseACoordinates = {
+        voltage: {
+            data: [
+                {x: decX(0), y: decY(0)},
+                {x: decX(0), y: decY(height / 2)}
+            ]
+        },
+        current: {
+            data: [
+                {x: decX(0), y: decY(0)},
+                {x: decX(Math.trunc(height / 2 * Math.sin(phaseA.corner * 3.14 / 180))), y: decY(Math.trunc(height / 2 * Math.cos(phaseA.corner * 3.14 / 180)))}
+            ]
+        }
+    };
+
+    phaseCoordinates.phaseBCoordinates = {
         voltage: {
             data: [
                 {x: decX(0), y: decY(0)},
