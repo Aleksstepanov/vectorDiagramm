@@ -20,12 +20,12 @@ export default class extends Component {
             phaseB: {
                 voltage: '',
                 current: '',
-                corner: ''
+                corner: NaN,
             },
             phaseC: {
                 voltage: '',
                 current: '',
-                corner: ''
+                corner: NaN,
             },
 
         }

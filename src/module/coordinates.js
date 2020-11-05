@@ -4,8 +4,8 @@ import decY from "./decY";
 import width from "./widthGraph";
 import height from "./heightGraph";
 
-export default (state) => {
-    if (isFinite(state)) {
+export default (state, shift = false) => {
+    if (!shift) {
         return [
             {x: decX(0), y: decY(0)},
             {
@@ -14,5 +14,12 @@ export default (state) => {
             }
         ]
     }
-    else return null;
+    if (shift) {
+        return [
+            {
+                x: Math.trunc(height() / 2 * Math.sin(state * 3.14 / 180)),
+                y: Math.trunc(height() / 2 * Math.cos(state * 3.14 / 180))
+            }
+        ]
+    }
 }
