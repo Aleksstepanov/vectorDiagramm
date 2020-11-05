@@ -15,7 +15,7 @@ export default class extends Component {
             phaseA: {
                 voltage: '',
                 current: '',
-                corner: '0'
+                corner: NaN,
             },
             phaseB: {
                 voltage: '',
@@ -72,7 +72,6 @@ export default class extends Component {
             default: 
                 console.log(1);
         }
-        console.log(this.state);
     }
     render() {
         return (
@@ -87,7 +86,7 @@ export default class extends Component {
                     </div>
                 </div>
                 <div className={style.graph}>
-                    <VDGraf data={coordinates(this.state)}/>
+                    <VDGraf data={[this.state.phaseA.corner, this.state.phaseB.corner, this.state.phaseC.corner]}/>
                 </div>
             </React.Fragment>
         );
