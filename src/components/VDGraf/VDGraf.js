@@ -1,17 +1,13 @@
 import React, {useState} from "react";
-import { VictoryLine, VictoryGroup, VictoryContainer } from 'victory';
+import { VictoryLine, VictoryGroup } from 'victory';
 import coordinates from '../../module/coordinates';
 import decY from "../../module/decY";
 import decX from "../../module/decX";
-import width from "../../module/widthGraph";
 import height from "../../module/heightGraph";
-import coordinateShift from "../../module/coordinateShift";
 
 export default (props) => {
-    const {data} = props,
-        [phaseB] = coordinates(data[1], true),
-        [phaseC] = coordinates(data[2], true);
-    console.log(coordinateShift(phaseC.x, phaseC.y, -120));
+    const {data} = props;
+       
     return(
             <VictoryGroup>
                 <VictoryLine
@@ -47,7 +43,7 @@ export default (props) => {
                         parent: { border: "1px solid #ccc"}
                     }}
                     domain={{x: [0, 320], y: [0, 320]}}
-                    data={coordinateShift(decX(0), decY(height() / 2), 120)}
+                    data={coordinates(120)}
                 />
                 {!Object.is(+data[1], NaN)
                     ?
@@ -61,7 +57,7 @@ export default (props) => {
                             onLoad: { duration: 1000 }
                         }}
                         domain={{x: [0, 320], y: [0, 320]}}
-                        data={coordinateShift(phaseB.x, phaseB.y, 120)}
+                        data={coordinates(data[1] - 240)}
                     />
                     : null
                 }
@@ -71,7 +67,7 @@ export default (props) => {
                         parent: { border: "1px solid #ccc"}
                     }}
                     domain={{x: [0, 320], y: [0, 320]}}
-                    data={coordinateShift(decX(0), decY(height() / 2), -120)}
+                    data={coordinates(-120)}
                 />
                 {!Object.is(+data[2], NaN)
                     ?
@@ -85,7 +81,7 @@ export default (props) => {
                             onLoad: { duration: 1000 }
                         }}
                         domain={{x: [0, 320], y: [0, 320]}}
-                        data={coordinateShift(phaseC.x, phaseC.y, -120)}
+                        data={coordinates(data[2] - 120)}
                     />
                     : null
                 }
