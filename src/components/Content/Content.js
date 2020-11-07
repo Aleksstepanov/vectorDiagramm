@@ -7,6 +7,7 @@ import DataVD from '../DataVD/DataVD';
 import VDGraf from "../VDGraf/VDGraf";
 import CardPower from "../CardPower/CardPower";
 import PowerGraph from '../PowerGraph/PowerGraph';
+import powerValue from '../../module/powerValue';
 import style from './Content.module.scss';
 
 export default class extends Component {
@@ -74,18 +75,7 @@ export default class extends Component {
                 console.log(1);
         }
     }
-    renderPowerCard = () => {
-        for (const key in this.state) {
-            if (!Object.is(+this.state[key].voltage, NaN) && !Object.is(+this.state[key].current, NaN)) {
-                
-                return (
-                    <div className="col s12 m3">
-                        <CardPower value={this.state[key]} name={key} key={key}/>
-                    </div>
-                )
-            }
-        }
-    }
+    
     render() {
         return (
             <React.Fragment>
@@ -99,36 +89,40 @@ export default class extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col s12 m3">
+                    <div className="col s12 m12">
                         <div className="card grey lighten-1">
                             <VDGraf data={[this.state.phaseA.corner, this.state.phaseB.corner, this.state.phaseC.corner]}/>
                         </div>
                     </div>
-                    {(!Object.is(+this.state.phaseA.voltage, NaN) && !Object.is(+this.state.phaseA.current, NaN) && !Object.is(+this.state.phaseA.corner, NaN))
-                        ?
-                        <div className="col s12 m2">
-                            <CardPower value={this.state.phaseA} name="Фаза А"/>
-                        </div>
-                        : null
-                    }
-                    {(!Object.is(+this.state.phaseB.voltage, NaN) && !Object.is(+this.state.phaseB.current, NaN) && !Object.is(+this.state.phaseB.corner, NaN))
-                        ?
-                        <div className="col s12 m2">
-                            <CardPower value={this.state.phaseB} name="Фаза В"/>
-                        </div>
-                        : null
-                    }
-                    {(!Object.is(+this.state.phaseC.voltage, NaN) && !Object.is(+this.state.phaseC.current, NaN) && !Object.is(+this.state.phaseC.corner, NaN))
-                        ?
-                        <div className="col s12 m2">
-                            <CardPower value={this.state.phaseC} name="Фаза С"/>
-                        </div>
-                        : null
-                    }
-                    <div className="col s12 m3">
-                        <PowerGraph />
-                    </div>    
                 </div>
+                    <div className="row">
+                        {(!Object.is(+this.state.phaseA.voltage, NaN) && !Object.is(+this.state.phaseA.current, NaN) && !Object.is(+this.state.phaseA.corner, NaN))
+                            ?
+                            <div className="col s12 m4">
+                                <CardPower value={this.state.phaseA} name="Фаза А"/>
+                                <PowerGraph corner={this.state.phaseA.corner}/>
+                            </div>
+                            : null
+                        }
+                        {(!Object.is(+this.state.phaseB.voltage, NaN) && !Object.is(+this.state.phaseB.current, NaN) && !Object.is(+this.state.phaseB.corner, NaN))
+                            ?
+                            <div className="col s12 m4">
+                                <CardPower value={this.state.phaseB} name="Фаза В"/>
+                                <PowerGraph corner={this.state.phaseB.corner}/>
+                            </div>
+                            : null
+                        }
+                        {(!Object.is(+this.state.phaseC.voltage, NaN) && !Object.is(+this.state.phaseC.current, NaN) && !Object.is(+this.state.phaseC.corner, NaN))
+                            ?
+                            <div className="col s12 m4">
+                                <CardPower value={this.state.phaseC} name="Фаза С"/>
+                                <PowerGraph corner={this.state.phaseC.corner}/>
+                            </div>
+                            : null
+                        }
+                        </div>
+                    
+                
             </React.Fragment>
         );
     }
