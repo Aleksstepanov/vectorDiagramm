@@ -6,6 +6,7 @@ import ChoiceRemovalVD from "../ChoiceRemovalVD/ChoiceRemovalVD";
 import DataVD from '../DataVD/DataVD';
 import VDGraf from "../VDGraf/VDGraf";
 import CardPower from "../CardPower/CardPower";
+import PowerGraph from '../PowerGraph/PowerGraph';
 import style from './Content.module.scss';
 
 export default class extends Component {
@@ -123,7 +124,10 @@ export default class extends Component {
                             <CardPower value={this.state.phaseC} name="Фаза С"/>
                         </div>
                         : null
-                    }    
+                    }
+                    <div className="col s12 m3">
+                        <PowerGraph />
+                    </div>    
                 </div>
             </React.Fragment>
         );
