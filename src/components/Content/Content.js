@@ -5,7 +5,7 @@ import cl from 'classnames';
 import ChoiceRemovalVD from "../ChoiceRemovalVD/ChoiceRemovalVD";
 import DataVD from '../DataVD/DataVD';
 import VDGraf from "../VDGraf/VDGraf";
-import coordinates from "../../module/coordinates";
+import CardPower from "../CardPower/CardPower";
 import style from './Content.module.scss';
 
 export default class extends Component {
@@ -13,18 +13,18 @@ export default class extends Component {
         super(props);
         this.state = {
             phaseA: {
-                voltage: '',
-                current: '',
+                voltage: NaN,
+                current: NaN,
                 corner: NaN,
             },
             phaseB: {
-                voltage: '',
-                current: '',
+                voltage: NaN,
+                current: NaN,
                 corner: NaN,
             },
             phaseC: {
-                voltage: '',
-                current: '',
+                voltage: NaN,
+                current: NaN,
                 corner: NaN,
             },
 
@@ -73,6 +73,18 @@ export default class extends Component {
                 console.log(1);
         }
     }
+    renderPowerCard = () => {
+        for (const key in this.state) {
+            if (!Object.is(+this.state[key].voltage, NaN) && !Object.is(+this.state[key].current, NaN)) {
+                
+                return (
+                    <div className="col s12 m3">
+                        <CardPower value={this.state[key]} name={key} key={key}/>
+                    </div>
+                )
+            }
+        }
+    }
     render() {
         return (
             <React.Fragment>
@@ -85,8 +97,33 @@ export default class extends Component {
                         />
                     </div>
                 </div>
-                <div className={style.graph}>
-                    <VDGraf data={[this.state.phaseA.corner, this.state.phaseB.corner, this.state.phaseC.corner]}/>
+                <div className="row">
+                    <div className="col s12 m3">
+                        <div className="card grey lighten-1">
+                            <VDGraf data={[this.state.phaseA.corner, this.state.phaseB.corner, this.state.phaseC.corner]}/>
+                        </div>
+                    </div>
+                    {(!Object.is(+this.state.phaseA.voltage, NaN) && !Object.is(+this.state.phaseA.current, NaN) && !Object.is(+this.state.phaseA.corner, NaN))
+                        ?
+                        <div className="col s12 m2">
+                            <CardPower value={this.state.phaseA} name="Фаза А"/>
+                        </div>
+                        : null
+                    }
+                    {(!Object.is(+this.state.phaseB.voltage, NaN) && !Object.is(+this.state.phaseB.current, NaN) && !Object.is(+this.state.phaseB.corner, NaN))
+                        ?
+                        <div className="col s12 m2">
+                            <CardPower value={this.state.phaseB} name="Фаза В"/>
+                        </div>
+                        : null
+                    }
+                    {(!Object.is(+this.state.phaseC.voltage, NaN) && !Object.is(+this.state.phaseC.current, NaN) && !Object.is(+this.state.phaseC.corner, NaN))
+                        ?
+                        <div className="col s12 m2">
+                            <CardPower value={this.state.phaseC} name="Фаза С"/>
+                        </div>
+                        : null
+                    }    
                 </div>
             </React.Fragment>
         );

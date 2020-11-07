@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { VictoryLine, VictoryGroup } from 'victory';
 import coordinates from '../../module/coordinates';
 import decY from "../../module/decY";
