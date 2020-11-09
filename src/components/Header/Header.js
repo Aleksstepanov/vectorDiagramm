@@ -12,16 +12,16 @@ export default (props) => {
               <li key={index}
                   className={style.menuElem}
               >
-                  <a>{elem}</a>
+                  <button className="grey darken-1">{elem}</button>
               </li>
           )
     return (
         <header>
             <nav className={style.navDesktop}>
                 <div className={cl("nav-wrapper", 'grey', 'darken-1')}>
-                    <a href="#" className={cl('brand-logo', style.logo)}>
+                    <div className={cl('brand-logo', style.logo)}>
                         <img src={logo} alt="logo" className={cl(style.logoImg)}/>
-                    </a>
+                    </div>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         {menuList}
                     </ul>

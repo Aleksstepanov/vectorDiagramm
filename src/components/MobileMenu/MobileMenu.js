@@ -16,14 +16,14 @@ export default (props) => {
             <ul id="slide-out" className={cl('sidenav', 'grey', 'darken-1')}>
                 {menu.map((elem, index) =>
                 <li key={index} className={style.menuElem}>
-                    <a>{elem}</a>
+                    <button className="grey darken-1">{elem}</button>
                     <hr/>
                 </li>
                 )}
             </ul>
-            <a href="#" data-target="slide-out" className="sidenav-trigger"
+            <button data-target="slide-out" className="sidenav-trigger grey darken-1"
                 onClick={onMenuClick}
-                ><i className="material-icons">menu</i></a>
+                ><i className="material-icons">menu</i></button>
         </React.Fragment>
     )
 }
