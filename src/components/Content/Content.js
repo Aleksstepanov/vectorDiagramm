@@ -89,7 +89,7 @@ export default class extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col s12 m12">
+                    <div className="col s12 m4 offset-m4">
                         <div className="card grey lighten-1">
                             <VDGraf data={[this.state.phaseA.corner, this.state.phaseB.corner, this.state.phaseC.corner]}/>
                         </div>
