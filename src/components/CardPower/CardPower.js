@@ -5,6 +5,7 @@ export default props => {
     const name = props.name,
         {voltage, current, corner} = props.value,
         title = ['Активная мощность', 'Реактивная мощность', 'Полная мощность', 'Коэфф. мощности'],
+        units = ['кВт', 'кВар', 'ВА', ''],
         Power = powerValue(voltage, current, corner);
     
     return (
@@ -13,7 +14,7 @@ export default props => {
                     <span className="card-title">{name}</span>
                     <ul className="collection grey lighten-1">
                         {
-                            Object.keys(Power).map((elem, index) => <li className="collection-item grey lighten-1" key={index}>{title[index]} {Power[elem]}</li>)
+                            Object.keys(Power).map((elem, index) => <li className="collection-item grey lighten-1" key={index}>{title[index]} {Power[elem]} {units[index]}</li>)
                         }
                     </ul>
                 </div>

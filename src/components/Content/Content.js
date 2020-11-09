@@ -7,7 +7,6 @@ import DataVD from '../DataVD/DataVD';
 import VDGraf from "../VDGraf/VDGraf";
 import CardPower from "../CardPower/CardPower";
 import PowerGraph from '../PowerGraph/PowerGraph';
-import powerValue from '../../module/powerValue';
 import style from './Content.module.scss';
 
 export default class extends Component {

@@ -20,7 +20,7 @@ export default (props) => {
             <nav className={style.navDesktop}>
                 <div className={cl("nav-wrapper", 'grey', 'darken-1')}>
                     <a href="#" className={cl('brand-logo', style.logo)}>
-                        <img src={logo} alt="logo"/>
+                        <img src={logo} alt="logo" className={cl(style.logoImg)}/>
                     </a>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         {menuList}

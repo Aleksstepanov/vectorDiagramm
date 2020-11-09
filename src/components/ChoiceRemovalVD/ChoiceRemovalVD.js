@@ -1,5 +1,4 @@
 import React from "react";
-import cl from 'classnames';
 import style from './ChoiceRemovalVD.module.scss';
 
 export default (props) => {

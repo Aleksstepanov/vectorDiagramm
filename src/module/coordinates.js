@@ -1,7 +1,5 @@
-import coordinateShift from "./coordinateShift";
 import decX from "./decX";
 import decY from "./decY";
-import width from "./widthGraph";
 import height from "./heightGraph";
 
 export default (state, shift = false) => {

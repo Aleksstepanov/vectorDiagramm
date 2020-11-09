@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryLine, VictoryGroup, VictoryAxis, VictoryTheme } from 'victory';
+import { VictoryLine, VictoryGroup} from 'victory';
 import coordinates from '../../module/coordinates';
 import decY from "../../module/decY";
 import decX from "../../module/decX";
