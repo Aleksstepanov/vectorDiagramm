@@ -7,7 +7,7 @@ import style from './Header.module.scss';
 import MobileMenu from '../MobileMenu/MobileMenu';
 
 export default (props) => {
-    const {menu} = props;
+    const {menu, logo} = props;
     const menuList = menu.map((elem, index) =>
               <li key={index}
                   className={style.menuElem}
@@ -19,7 +19,9 @@ export default (props) => {
         <header>
             <nav className={style.navDesktop}>
                 <div className={cl("nav-wrapper", 'grey', 'darken-1')}>
-                    <a href="#" className={cl('brand-logo', style.logo)}>Logo</a>
+                    <a href="#" className={cl('brand-logo', style.logo)}>
+                        <img src={logo} alt="logo"/>
+                    </a>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         {menuList}
                     </ul>
